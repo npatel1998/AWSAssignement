@@ -1,0 +1,30 @@
+{
+  "name": "aws",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "_moduleAliases": {
+    "@Tasks": "dist/Tasks",
+    "@Types": "dist/Types"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^24.10.2",
+    "axios": "^1.13.2",
+    "module-alias": "^2.2.3",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6"
+  }
+}
