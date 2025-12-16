@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from "axios";
 import type { ApiResult } from "@Types/type";
-
+import logger from "helper/logger";
 
 interface User {
   id: number;
@@ -33,11 +33,11 @@ export  async function singleApiCall(): Promise<void> {
   const result = await fetchUsers();
 
   if (result.success && result.data) {
-    console.log("✅ Users fetched successfully:");
+    logger.info("✅ Users fetched successfully:");
     result.data.forEach((user) => {
-      console.log(`ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`);
+      logger.info(`ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`);
     });
   } else {
-    console.error("❌ Error fetching users:", result.error);
+    logger.error("❌ Error fetching users:", result.error);
   }
 }

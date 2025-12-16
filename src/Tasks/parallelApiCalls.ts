@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from "axios";
 import { type ApiResult } from "../Types/type.js";
-
+import logger from "helper/logger.js";
 // Define interfaces for API responses
 interface User {
   id: number;
@@ -49,23 +49,23 @@ export async function parallelApiCalls(): Promise<void> {
     ]);
 
     if (usersResult.success && postsResult.success) {
-      console.log("✅ Users and Posts fetched successfully!");
+      logger.info("✅ Users and Posts fetched successfully!");
 
-      console.log("\n--- Users ---");
+      logger.info("\n--- Users ---");
       usersResult.data?.slice(0, 3).forEach((user) =>
-        console.log(`ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`)
+        logger.info(`ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`)
       );
 
-      console.log("\n--- Posts ---");
+      logger.info("\n--- Posts ---");
       postsResult.data?.slice(0, 3).forEach((post) =>
-        console.log(`ID: ${post.id}, Title: ${post.title}`)
+        logger.info(`ID: ${post.id}, Title: ${post.title}`)
       );
     } else {
-      console.error("❌ Error fetching data:");
-      console.error("Users:", usersResult.error);
-      console.error("Posts:", postsResult.error);
+      logger.error("❌ Error fetching data:");
+      logger.error("Users:", usersResult.error);
+      logger.error("Posts:", postsResult.error);
     }
   } catch (err) {
-    console.error("Unexpected error:", err);
+    logger.error("Unexpected error:", err);
   }
 }

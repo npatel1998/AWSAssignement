@@ -1,14 +1,14 @@
 import * as fs from "fs";
 import { promises as fsp } from "fs";
 import * as path from "path";
-
+import logger from "helper/logger";
 const filePath = path.join(__dirname, "example.txt");
 
 //
 // 1️⃣ Synchronous File Operations
 //
 export function syncFileOps() {
-  console.log("=== Synchronous File Operations ===");
+  logger.info("=== Synchronous File Operations ===");
 
   // Create / Write
   fs.writeFileSync(filePath, "Hello, this is sync write!");
