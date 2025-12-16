@@ -4,8 +4,8 @@ import { parallelApiCalls } from "@Tasks/parallelApiCalls";
 import { fileOperation } from "@Tasks/fileOperations";
 console.log("Calling single Api Call")
 async function main(){
-    // await singleApiCall();
-    // await parallelApiCalls()
+    await singleApiCall();
+    await parallelApiCalls()
     await fileOperation()
 }
 
